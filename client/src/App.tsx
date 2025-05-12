@@ -6,10 +6,6 @@ import LoginLanding from "./auth/login"
 function App() {
 
   return (
-    <div style={{
-      height: "100%",
-      width: "100%",
-    }}>
       <BrowserRouter >
         <Routes>
           <Route path="/" element={<h1>
@@ -18,7 +14,6 @@ function App() {
           <Route path="/login" element={<LoginLanding />} />
         </Routes>
     </BrowserRouter>
-    </div>
   )
 }
 
