@@ -5,14 +5,14 @@ const LoginLanding  = () => {
     return (
         <div className="login-landing" id="login-landing">
             <div className="login-landing-box">
-                <div>Login</div>
+                <div>Welcome</div>
                 <div className="login-text-input-container">
                     <div className="login-text-input-label">Username:</div>
                     <input type="text" className="login-text-input"/>
                 </div>
                 <div className="login-text-input-container">
                     <div className="login-text-input-label">Password:</div>
-                    <input type="text" className="login-text-input"/>
+                    <input type="password" className="login-text-input" id="password"/>
                 </div>
                 <Button
                     id="login-button"
@@ -21,8 +21,9 @@ const LoginLanding  = () => {
                         console.log("Login button clicked")
                     }}
                 >
-                    Click
+                    Login
                 </Button>
+                <div id="forgot-password-text">Forgot Password?</div>
             </div>
         </div>
     )
