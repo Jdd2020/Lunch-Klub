@@ -1,0 +1,23 @@
+
+button {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #615d5d;
+    color: #ababab;
+    font-size: 1rem;
+    cursor: pointer;
+    width: 75%;
+}
+
+button:hover {
+    background-color: #ababab;
+    color: #615d5d;
+}
+
+button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s;
+}
