@@ -5,6 +5,7 @@ div .card {
     height: fit-content;
     width: fit-content;
     padding: 3rem 2rem;
+    gap: 1.25rem;
     align-items: center;
     background-color: #595757;
     border-radius: 15px;
