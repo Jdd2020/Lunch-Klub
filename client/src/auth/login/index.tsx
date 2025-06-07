@@ -1,14 +1,14 @@
+import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
-import "./index.css"
-import logo from "../../assets/lunch-klub.svg"
 import TextInput from "../../component/text-input";
+import "./index.css";
 
-const LoginLanding  = () => {
+const LoginLanding = () => {
     return (
         <div className="login-landing" id="login-landing">
             <div className="login-landing-box">
                 <div>Welcome</div>
-                <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo"/>
+                <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo" />
                 <TextInput
                     id="username-input"
                     label="Username:"
