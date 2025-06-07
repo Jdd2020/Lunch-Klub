@@ -1,0 +1,12 @@
+div .card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+    padding: 3rem 2rem;
+    align-items: center;
+    background-color: #595757;
+    border-radius: 15px;
+    border: 1px solid #615d5d;
+}
