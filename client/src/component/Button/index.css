@@ -9,6 +9,7 @@ button {
     font-size: 1rem;
     cursor: pointer;
     width: 75%;
+    letter-spacing: .25px;
 }
 
 button:hover {

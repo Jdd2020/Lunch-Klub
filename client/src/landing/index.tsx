@@ -2,9 +2,15 @@ import logo from "../assets/lunch-klub.svg";
 import Button from "../component/button";
 import Card from "../component/card";
 import CenterAlign from "../component/containers/center-align";
+import LinkText from "../component/link-text";
 import TextInput from "../component/text-input";
+import colorPallette from "../constants/colors";
+
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
+    const navigate = useNavigate();
+
     return (
         <CenterAlign
             style={{
@@ -30,8 +36,10 @@ const Landing = () => {
                 >
                     Join Room
                 </Button>
-
             </Card>
+            <LinkText onClick={() => navigate("/login")} style={{
+                color: colorPallette.textLightGray,
+            }}>Want to create a room? Login</LinkText>
         </CenterAlign>
     );
 }

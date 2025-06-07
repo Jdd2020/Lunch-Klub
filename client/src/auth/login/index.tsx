@@ -2,9 +2,9 @@ import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
 import Card from "../../component/card";
 import CenterAlign from "../../component/containers/center-align";
+import LinkText from "../../component/link-text";
 import TextInput from "../../component/text-input";
 import colorPallette from "../../constants/colors";
-import "./index.css";
 
 const LoginLanding = () => {
     return (
@@ -42,7 +42,7 @@ const LoginLanding = () => {
                 >
                     Login
                 </Button>
-                <div id="forgot-password-text">Forgot Password?</div>
+                <LinkText >Forgot Password?</LinkText>
             </Card>
         </CenterAlign>
     )
