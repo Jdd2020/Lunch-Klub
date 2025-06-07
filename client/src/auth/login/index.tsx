@@ -1,13 +1,14 @@
 import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
 import Card from "../../component/card";
+import CenterAlign from "../../component/containers/center-align";
 import TextInput from "../../component/text-input";
 import colorPallette from "../../constants/colors";
 import "./index.css";
 
 const LoginLanding = () => {
     return (
-        <div className="login-landing" id="login-landing">
+        <CenterAlign>
             <Card style={{
                 gap: "1.5rem",
                 color: colorPallette.textGray,
@@ -43,7 +44,7 @@ const LoginLanding = () => {
                 </Button>
                 <div id="forgot-password-text">Forgot Password?</div>
             </Card>
-        </div >
+        </CenterAlign>
     )
 }
 

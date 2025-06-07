@@ -13,6 +13,7 @@
 body {
 
   background: linear-gradient(270deg, #d72c2c, #e2832b, #d72c2c);
+
   background-size: 400% 400%;
 
   animation: gradientShift 10s ease infinite;
@@ -30,6 +31,8 @@ body {
 
 
   min-height: 100vh;
+
+  color: #ababab;
 
 
 }
