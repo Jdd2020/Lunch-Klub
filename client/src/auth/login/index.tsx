@@ -1,6 +1,7 @@
 import Button from "../../component/Button";
 import "./index.css"
 import logo from "../../assets/lunch-klub.svg"
+import TextInput from "../../component/text-input";
 
 const LoginLanding  = () => {
     return (
@@ -8,14 +9,22 @@ const LoginLanding  = () => {
             <div className="login-landing-box">
                 <div>Welcome</div>
                 <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo"/>
-                <div className="login-text-input-container">
-                    <div className="login-text-input-label">Username:</div>
-                    <input type="text" className="login-text-input"/>
-                </div>
-                <div className="login-text-input-container">
-                    <div className="login-text-input-label">Password:</div>
-                    <input type="password" className="login-text-input" id="password"/>
-                </div>
+                <TextInput
+                    id="username-input"
+                    label="Username:"
+                    type="text"
+                    onChange={(event) => {
+                        console.log(event.target.value)
+                    }}
+                />
+                <TextInput
+                    id="password-input"
+                    label="Password:"
+                    type="password"
+                    onChange={(event) => {
+                        console.log(event.target.value)
+                    }}
+                />
                 <Button
                     id="login-button"
                     className="login-button"

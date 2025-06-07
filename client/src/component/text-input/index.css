@@ -1,0 +1,36 @@
+.text-input:focus {
+    border: 1.5px solid #8b8383;
+    background-color: #595757;
+}
+
+.text-input:hover {
+    border: 1.5px solid #8b8383;
+    background-color: #595757;
+}
+
+
+.text-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.text-input-label {
+    font-size: .75rem;
+    color: #ababab;
+    font-weight: 500;
+}
+
+.text-input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #595757;
+    border: 1.5px solid #615d5d;
+    line-height: 1.5rem;
+    color: #ababab;
+    font-size: 1rem;
+    min-width: 13rem;
+  }
