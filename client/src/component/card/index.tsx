@@ -9,7 +9,7 @@ type CardProps = {
 
 const Card = ({ id, className, style, children }: CardProps) => {
     return (
-        <div id={id} className={`card-${className}`} style={style}>
+        <div id={id} className={`${className} card`} style={style}>
             {children}
         </div>
     );

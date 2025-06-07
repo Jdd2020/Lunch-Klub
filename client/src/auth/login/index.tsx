@@ -1,12 +1,19 @@
 import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
+import Card from "../../component/card";
 import TextInput from "../../component/text-input";
+import colorPallette from "../../constants/colors";
 import "./index.css";
 
 const LoginLanding = () => {
     return (
         <div className="login-landing" id="login-landing">
-            <div className="login-landing-box">
+            <Card style={{
+                gap: "1.5rem",
+                color: colorPallette.textGray,
+                fontWeight: "700",
+                fontSize: "1.75rem",
+            }}>
                 <div>Welcome</div>
                 <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo" />
                 <TextInput
@@ -35,8 +42,8 @@ const LoginLanding = () => {
                     Login
                 </Button>
                 <div id="forgot-password-text">Forgot Password?</div>
-            </div>
-        </div>
+            </Card>
+        </div >
     )
 }
 
