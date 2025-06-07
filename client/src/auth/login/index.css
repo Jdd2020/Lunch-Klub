@@ -1,19 +1,4 @@
-@keyframes gradientShift {
-  0% {
-    background-position: 0% 50%;
-  }
-
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-
-
 .login-landing {
-  background: linear-gradient(270deg, #d72c2c, #e2832b, #d72c2c);
-  background-size: 400% 400%;
-  animation: gradientShift 10s ease infinite;
   height: 100%;
   width: 100%;
   display: flex;
