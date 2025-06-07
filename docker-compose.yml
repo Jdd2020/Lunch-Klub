@@ -3,8 +3,7 @@ version: '3.8'
 services:
   api:
     build:
-      context: .
-      dockerfile: api/Dockerfile
+      context: ./api
     ports:
       - "8080:8080"
     restart: unless-stopped
@@ -14,7 +13,7 @@ services:
       context: .
       dockerfile: client/Dockerfile
     ports:
-      - "3000:3000"
+      - "5173:5173"
     environment:
       - CHOKIDAR_USEPOLLING=true # For hot reload in Docker
     restart: unless-stopped

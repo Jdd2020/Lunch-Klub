@@ -7,5 +7,5 @@ RUN npm install
 
 # Copy the rest and start dev server
 COPY client/ ./
-EXPOSE 3000
+EXPOSE 5173
 CMD ["npm", "run", "dev"]
