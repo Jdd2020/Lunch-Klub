@@ -7,11 +7,11 @@ import Landing from "./landing"
 function App() {
 
   return (
-      <BrowserRouter >
-        <Routes>
-          <Route path="/" element={<Landing />} />
-          <Route path="/login" element={<LoginLanding />} />
-        </Routes>
+    <BrowserRouter >
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<LoginLanding />} />
+      </Routes>
     </BrowserRouter>
   )
 }

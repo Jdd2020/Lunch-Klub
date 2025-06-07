@@ -1,4 +1,4 @@
-import Button from "../../component/Button";
+import Button from "../../component/button";
 import "./index.css"
 import logo from "../../assets/lunch-klub.svg"
 import TextInput from "../../component/text-input";

@@ -1,4 +1,4 @@
-import Button from "../component/Button"
+import Button from "../component/button"
 
 const Landing = () => {
     return (

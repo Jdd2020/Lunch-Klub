@@ -1,5 +1,5 @@
-import { MouseEvent } from "react"
-import "./index.css"
+import { MouseEvent } from "react";
+import "./index.css";
 
 
 type ButtonProps = {

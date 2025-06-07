@@ -1,4 +1,4 @@
-import "./index.css"
+import "./index.css";
 
 type TextInputProps = {
     id?: string;
@@ -17,7 +17,7 @@ const TextInput = (
         <div style={style} id={id} className={className}>
             <div className="text-input-container">
                 <div className="text-input-label">{label}</div>
-                <input type={type} className="text-input" onChange={onChange}/>
+                <input type={type} className="text-input" onChange={onChange} />
             </div>
         </div>
     )
