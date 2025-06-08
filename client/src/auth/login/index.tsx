@@ -15,7 +15,7 @@ const LoginLanding = () => {
                 fontWeight: "700",
                 fontSize: "1.75rem",
             }}>
-                <div>Welcome</div>
+                <div>Welcome!</div>
                 <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo" />
                 <TextInput
                     id="username-input"
@@ -41,9 +41,11 @@ const LoginLanding = () => {
                     }}
                 >
                     Login
+                    <i className="fa-solid fa-right-to-bracket" />
                 </Button>
                 <LinkText >Forgot Password?</LinkText>
             </Card>
+            <LinkText style={{ color: colorPallette.textLightGray }}>Don't have an account? Sign up</LinkText>
         </CenterAlign>
     )
 }
