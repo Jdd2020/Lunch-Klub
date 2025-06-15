@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
 import Card from "../../component/card";
@@ -7,6 +8,8 @@ import TextInput from "../../component/text-input";
 import colorPallette from "../../constants/colors";
 
 const LoginLanding = () => {
+    const navigate = useNavigate();
+
     return (
         <CenterAlign>
             <Card style={{
@@ -45,7 +48,9 @@ const LoginLanding = () => {
                 </Button>
                 <LinkText >Forgot Password?</LinkText>
             </Card>
-            <LinkText style={{ color: colorPallette.textLightGray }}>Don't have an account? Sign up</LinkText>
+            <LinkText
+                onClick={() => navigate("/signup")}
+                style={{ color: colorPallette.textLightGray }}>Don't have an account? Sign up</LinkText>
         </CenterAlign>
     )
 }
