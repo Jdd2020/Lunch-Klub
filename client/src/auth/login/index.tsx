@@ -1,4 +1,4 @@
-import { useActionState } from "react";
+import { useActionState, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import logo from "../../assets/lunch-klub.svg";
@@ -27,6 +27,9 @@ const initLoginFormState: LoginFormState = {
 const LoginLanding = () => {
     const navigate = useNavigate();
 
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
     const [loginFormState, submitAction, isPending] = useActionState<LoginFormState, FormData>(
         async (prevState: LoginFormState, formData: FormData) => {
             // handle login logic here
@@ -48,21 +51,26 @@ const LoginLanding = () => {
             else if (!/[0-9]/.test(password)) errorPassword = "Password must contain at least one number";
             else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) errorPassword = "Password must contain at least one special character";
 
-            if (errorEmail || errorPassword) return {
-                errorGeneral: "Incomplete form submission",
-                errorEmail,
-                errorPassword,
-                isSuccess: false
+            if (errorEmail || errorPassword) {
+                if (errorEmail) setEmail("");
+                if (errorPassword) setPassword("");
+                return {
+                    errorGeneral: "Incomplete form submission",
+                    errorEmail,
+                    errorPassword,
+                    isSuccess: false
+                };
             }
 
             await new Promise(resolve => setTimeout(resolve, 3000));
 
             // Simulate a login request
-            if (email === "testuser@example.com" && password === "password123") {
+            if (email === "testuser@example.com" && password === "Password123!") {
                 console.log("Login successful");
                 return { ...prevState, isSuccess: true };
             }
             console.log("Login failed");
+            setPassword("");
             return {
                 ...prevState,
                 errorEmail: errorEmail,
@@ -81,6 +89,7 @@ const LoginLanding = () => {
                 color: colorPallette.textGray,
                 fontWeight: "700",
                 fontSize: "1.75rem",
+                minWidth: "300px"
             }}>
                 <div>Welcome!</div>
                 <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo" />
@@ -93,6 +102,11 @@ const LoginLanding = () => {
                         label="Email:"
                         name="email"
                         type="text"
+                        value={email}
+                        onChange={(event) => {
+                            setEmail(event.target.value);
+                        }}
+                        style={{ width: "250px" }}
                         error={loginFormState.errorEmail}
                     />
                     <TextInput
@@ -100,6 +114,11 @@ const LoginLanding = () => {
                         label="Password:"
                         type="password"
                         name="password"
+                        value={password}
+                        onChange={(event) => {
+                            setPassword(event.target.value);
+                        }}
+                        style={{ width: "250px" }}
                         error={loginFormState.errorPassword}
                     />
                     <Button

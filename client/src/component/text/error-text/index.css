@@ -1,6 +1,10 @@
 div .error-text {
     color: #cf4747;
     font-weight: 600;
+    max-width: 100%;
+    white-space: normal;
+    word-break: break-word;
+    overflow-wrap: break-word;
 }
 
 .error-text.md {
