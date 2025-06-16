@@ -5,18 +5,21 @@ import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
 import Card from "../../component/card";
 import CenterAlign from "../../component/containers/center-align";
-import LinkText from "../../component/link-text";
 import TextInput from "../../component/text-input";
+import ErrorText from "../../component/text/error-text";
+import LinkText from "../../component/text/link-text";
 import colorPallette from "../../constants/colors";
 
 type LoginFormState = {
-    errorUsername?: string;
+    errorGeneral?: string;
+    errorEmail?: string;
     errorPassword?: string;
     isSuccess?: boolean;
 }
 
 const initLoginFormState: LoginFormState = {
-    errorUsername: undefined,
+    errorGeneral: undefined,
+    errorEmail: undefined,
     errorPassword: undefined,
     isSuccess: false,
 }
@@ -27,33 +30,44 @@ const LoginLanding = () => {
     const [loginFormState, submitAction, isPending] = useActionState<LoginFormState, FormData>(
         async (prevState: LoginFormState, formData: FormData) => {
             // handle login logic here
-            const username = formData.get("username") as string;
+            const email = formData.get("email") as string;
             const password = formData.get("password") as string;
-            console.log("Login attempt with username:", username, "and password:", password);
+            console.log("Login attempt with email:", email, "and password:", password);
 
-            let errorUsername: string | undefined = undefined;
+            let errorEmail: string | undefined = undefined;
             let errorPassword: string | undefined = undefined;
 
-            if (!username) errorUsername = "Username is required";
-            if (!password) errorPassword = "Password is required";
+            if (!email) errorEmail = "Email is required";
+            else if (!/\S+@\S+\.\S+/.test(email)) errorEmail = "Invalid email format";
 
-            if (errorUsername || errorPassword) return {
-                ...prevState,
-                errorUsername,
+            if (!password) errorPassword = "Password is required";
+            else if (password.length < 6) errorPassword = "Password must be at least 6 characters long";
+            else if (password.length > 20) errorPassword = "Password must be at most 20 characters long";
+            else if (!/[A-Z]/.test(password)) errorPassword = "Password must contain at least one uppercase letter";
+            else if (!/[a-z]/.test(password)) errorPassword = "Password must contain at least one lowercase letter";
+            else if (!/[0-9]/.test(password)) errorPassword = "Password must contain at least one number";
+            else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) errorPassword = "Password must contain at least one special character";
+
+            if (errorEmail || errorPassword) return {
+                errorGeneral: "Incomplete form submission",
+                errorEmail,
                 errorPassword,
                 isSuccess: false
             }
 
+            await new Promise(resolve => setTimeout(resolve, 3000));
+
             // Simulate a login request
-            if (username === "testuser" && password === "password123") {
+            if (email === "testuser@example.com" && password === "password123") {
                 console.log("Login successful");
                 return { ...prevState, isSuccess: true };
             }
             console.log("Login failed");
             return {
                 ...prevState,
-                errorUsername: username ? undefined : "Username is required",
-                errorPassword: password ? undefined : "Password is required",
+                errorEmail: errorEmail,
+                errorPassword: errorPassword,
+                errorGeneral: "Invalid email or password",
                 isSuccess: false
             };
         },
@@ -70,13 +84,16 @@ const LoginLanding = () => {
             }}>
                 <div>Welcome!</div>
                 <img src={logo} height={100} width={100} alt="Lunch Klub Logo" className="login-logo" />
-                <form action={submitAction}>
+                {loginFormState.errorGeneral && (
+                    <ErrorText>{loginFormState.errorGeneral}</ErrorText>
+                )}
+                <form action={submitAction} style={{ display: "flex", flexDirection: "column", gap: "1rem", alignItems: "center" }}>
                     <TextInput
-                        id="username-input"
-                        label="Username:"
-                        name="username"
+                        id="email-input"
+                        label="Email:"
+                        name="email"
                         type="text"
-                        error={loginFormState.errorUsername}
+                        error={loginFormState.errorEmail}
                     />
                     <TextInput
                         id="password-input"
@@ -90,8 +107,16 @@ const LoginLanding = () => {
                         className="login-button"
                         type="submit"
                     >
-                        Login
-                        <i className="fa-solid fa-right-to-bracket" />
+                        {isPending ? (
+                            <span>
+                                <i className="fa-solid fa-spinner fa-spin" />
+                            </span>
+                        ) : (
+                            <>
+                                Login
+                                <i className="fa-solid fa-right-to-bracket" />
+                            </>
+                        )}
                     </Button>
                 </form>
                 <LinkText >Forgot Password?</LinkText>

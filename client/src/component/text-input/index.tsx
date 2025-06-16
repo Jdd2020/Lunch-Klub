@@ -1,5 +1,7 @@
 import "./index.css";
 
+import ErrorText from "../text/error-text";
+
 type TextInputProps = {
     id?: string;
     className?: string;
@@ -21,7 +23,7 @@ const TextInput = (
             <div className="text-input-container">
                 <div className="text-input-label">{label}</div>
                 <input type={type} className="text-input" onChange={onChange} placeholder={placeholder} name={name} />
-                <div className="text-input-error">{error}</div>
+                <ErrorText size="sm">{error}</ErrorText>
             </div>
         </div>
     )

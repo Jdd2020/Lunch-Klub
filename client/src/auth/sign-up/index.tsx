@@ -3,8 +3,8 @@ import logo from "../../assets/lunch-klub.svg";
 import Button from "../../component/button";
 import Card from "../../component/card";
 import CenterAlign from "../../component/containers/center-align";
-import LinkText from "../../component/link-text";
 import TextInput from "../../component/text-input";
+import LinkText from "../../component/text/link-text";
 import colorPallette from "../../constants/colors";
 
 const FormRow = styled.div`

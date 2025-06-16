@@ -1,0 +1,16 @@
+div .error-text {
+    color: #cf4747;
+    font-weight: 600;
+}
+
+.error-text.md {
+    font-size: 1rem;
+}
+
+.error-text.sm {
+    font-size: 0.75rem;
+}
+
+.error-text.lg {
+    font-size: 1.5rem;
+}
