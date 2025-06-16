@@ -6,6 +6,7 @@ type ButtonProps = {
     id?: string;
     className?: string;
     style?: React.CSSProperties;
+    type?: "button" | "submit" | "reset";
     children?: React.ReactNode;
     onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
 }
@@ -13,10 +14,10 @@ type ButtonProps = {
 
 
 const Button = (
-    { id, className, style, children, onClick }: ButtonProps
+    { id, className, style, children, onClick, type = "button" }: ButtonProps
 ) => {
     return (
-        <button onClick={onClick} className={className} style={style} id={id}>
+        <button onClick={onClick} className={className} style={style} id={id} type={type}>
             {children}
         </button>
     )
