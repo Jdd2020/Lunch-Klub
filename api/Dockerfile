@@ -1,16 +1,19 @@
-# Build stage
-FROM maven:3.9-eclipse-temurin-17 AS build
+# Use the official Python image
+FROM python:3.12
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# Set working directory
 WORKDIR /app
 
-COPY pom.xml .
-COPY src/ ./src/
-RUN mvn clean package -DskipTests
+# Install dependencies
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
 
-# Runtime stage
-FROM eclipse-temurin:17-jdk
-WORKDIR /app
+# Copy project files
+COPY . .
 
-COPY --from=build /app/target/*.jar app.jar
-
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run server (for development)
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
