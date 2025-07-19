@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pkl
+
+# Django
+*.log
+*.pot
+*.mo
+*.sqlite3
+db.sqlite3
+media/
+staticfiles/
+*.bak
+
+# Virtual environment
+venv/
+.env
+.env.*
+
+# VS Code
+.vscode/
+
+# Migrations (optional — keep if collaborating)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Coverage reports
+htmlcov/
+coverage.xml
+*.cover
+.cache
+
+# Testing artifacts
+.tox/
+.nox/
+.pytest_cache/
+
+# Docker
+*.pid
+*.seed
+*.pid.lock
+docker-compose.override.yml
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
