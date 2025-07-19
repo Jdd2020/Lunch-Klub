@@ -1,0 +1,3 @@
+User commands:
+
+manage.py changepassword <USERNAME> | Changes password for a user from the command line
