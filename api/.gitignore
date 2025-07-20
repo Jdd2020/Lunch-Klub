@@ -24,9 +24,6 @@ venv/
 # VS Code
 .vscode/
 
-# Migrations (optional — keep if collaborating)
-**/migrations/*.py
-!**/migrations/__init__.py
 
 # Coverage reports
 htmlcov/
