@@ -36,7 +36,8 @@ class Auth(viewsets.ViewSet):
     serializer_class = UserSerializer
 
     def list(self, request):
-        print(request.user)
-        users = User.objects.all()
-        serializer = self.serializer_class(users, many=True)
-        return Response(serializer.data)
+        user = request.user
+        if user is not None and user.is_authenticated:
+            serializer = self.serializer_class(user)
+            return Response(serializer.data)
+        return Response({"message": "User is not authenticated."}, status=status.HTTP_401_UNAUTHORIZED)
