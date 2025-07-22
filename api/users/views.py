@@ -37,6 +37,7 @@ class Auth(viewsets.ViewSet):
 
     def list(self, request):
         user = request.user
+        print(f"User: {user}")
         if user is not None and user.is_authenticated:
             serializer = self.serializer_class(user)
             return Response(serializer.data)
