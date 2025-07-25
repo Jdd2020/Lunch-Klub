@@ -3,9 +3,9 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import store from "./store"
 
 import LoginLanding from "./auth/login"
-import Profile from "./auth/profile"
 import SignUp from "./auth/sign-up"
 import Landing from "./landing"
+import Profile from "./profile"
 
 
 function App() {
