@@ -9,6 +9,7 @@ import TextInput from "../../component/text-input";
 import ErrorText from "../../component/text/error-text";
 import LinkText from "../../component/text/link-text";
 import colorPallette from "../../constants/colors";
+import { useLoginMutation } from "../../services/auth";
 
 type LoginFormState = {
     errorGeneral?: string;
@@ -29,6 +30,7 @@ const LoginLanding = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [login] = useLoginMutation();
 
     const [loginFormState, submitAction, isPending] = useActionState<LoginFormState, FormData>(
         async (prevState: LoginFormState, formData: FormData) => {
@@ -49,7 +51,6 @@ const LoginLanding = () => {
             else if (!/[A-Z]/.test(password)) errorPassword = "Password must contain at least one uppercase letter";
             else if (!/[a-z]/.test(password)) errorPassword = "Password must contain at least one lowercase letter";
             else if (!/[0-9]/.test(password)) errorPassword = "Password must contain at least one number";
-            else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) errorPassword = "Password must contain at least one special character";
 
             if (errorEmail || errorPassword) {
                 if (errorEmail) setEmail("");
@@ -62,14 +63,14 @@ const LoginLanding = () => {
                 };
             }
 
-            await new Promise(resolve => setTimeout(resolve, 3000));
+            login({ email, password })
+                .unwrap().then(() => {
+                    navigate("/profile");
+                }).catch((error) => {
+                    console.error("Login failed:", error);
+                });
 
-            // Simulate a login request
-            if (email === "testuser@example.com" && password === "Password123!") {
-                console.log("Login successful");
-                return { ...prevState, isSuccess: true };
-            }
-            console.log("Login failed");
+
             setPassword("");
             return {
                 ...prevState,
@@ -78,6 +79,7 @@ const LoginLanding = () => {
                 errorGeneral: "Invalid email or password",
                 isSuccess: false
             };
+
         },
         initLoginFormState
     );

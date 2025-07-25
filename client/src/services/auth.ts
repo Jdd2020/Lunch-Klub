@@ -8,8 +8,10 @@ type loginAttempt = {
 
 export const authApi = createApi({
     reducerPath: 'authApi',
+    // Use same-origin proxy via Vite so cookies are on the client origin
     baseQuery: fetchBaseQuery({
-        baseUrl: 'http://127.0.0.1:8000/api/',
+        baseUrl: '/api/',
+        credentials: 'include',
     }),
     endpoints: (builder) => ({
         login: builder.mutation({
