@@ -4,7 +4,6 @@ from users.serializers import UserSerializer
 from django.contrib.auth import get_user_model
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login, logout
-from django.shortcuts import redirect
 
 
 
@@ -24,6 +23,7 @@ class LoginView(APIView):
 
         if user is not None:
             login(request, user)
+            print(f"User {user.email} logged in successfully.")
             return Response({"message": "Logged in successfully."}, status=status.HTTP_200_OK)
         return Response({"message": "Invalid email or password."}, status=status.HTTP_400_BAD_REQUEST)
     
