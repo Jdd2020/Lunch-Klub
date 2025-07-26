@@ -1,16 +1,19 @@
 import Card from "../../component/card";
 import CenterAlign from "../../component/containers/center-align";
+import TextInput from "../../component/text-input";
 
 
 const CreateRoom = () => {
     return (
-        <Card>
-            <CenterAlign>
-                <h1>Create a New Room</h1>
+        <CenterAlign>
+            <Card>
+                <TextInput label="Room Name" />
                 {/* Room creation form goes here */}
-            </CenterAlign>
-        </Card>
+
+            </Card>
+        </CenterAlign>
     );
 };
+
 
 export default CreateRoom;

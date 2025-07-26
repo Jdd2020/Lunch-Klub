@@ -6,6 +6,7 @@ import LoginLanding from "./auth/login"
 import SignUp from "./auth/sign-up"
 import Landing from "./landing"
 import Profile from "./profile"
+import CreateRoom from "./rooms/create"
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<LoginLanding />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/create-room" element={<CreateRoom />} />
         </Routes>
       </BrowserRouter>
     </Provider>
