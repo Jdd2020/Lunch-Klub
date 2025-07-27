@@ -19,9 +19,11 @@ from django.urls import path
 from rest_framework import routers
 from users import views as auth_views
 from django.urls import include
+from rooms import views as room_views
 
 api_router = routers.DefaultRouter()
 api_router.register(r'auth', auth_views.Auth, basename='auth')
+api_router.register(r'rooms', room_views.RoomViewSet, basename='rooms')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
