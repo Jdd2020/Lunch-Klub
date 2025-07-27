@@ -7,6 +7,7 @@ import SignUp from "./auth/sign-up"
 import Landing from "./landing"
 import Profile from "./profile"
 import CreateRoom from "./rooms/create"
+import RoomCreateGuest from "./rooms/create/guest"
 
 
 function App() {
@@ -19,7 +20,13 @@ function App() {
           <Route path="/login" element={<LoginLanding />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="/create-room" element={<CreateRoom />} />
+          <Route path="/rooms">
+            <Route path="create" element={<CreateRoom />} />
+            <Route path="create/guest" element={<RoomCreateGuest />} />
+            {/* Add more nested routes here, e.g.: */}
+            {/* <Route path=":roomId" element={<RoomDetail />} /> */}
+            {/* <Route path=":roomId/edit" element={<EditRoom />} /> */}
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>

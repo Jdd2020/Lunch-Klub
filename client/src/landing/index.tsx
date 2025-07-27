@@ -31,7 +31,7 @@ const Landing = () => {
                     id="landing-button"
                     className="landing-button"
                     onClick={() => {
-                        console.log("Landing button clicked");
+                        navigate("/rooms/create/guest");
                     }}
                 >
                     Join Room
