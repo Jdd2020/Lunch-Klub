@@ -11,12 +11,16 @@ class Room(BaseModel):
     is_active = models.BooleanField(default=True)
 
     def save(self, *args, **kwargs):
-        if self.code:
-            return ValueError("Code must be unique and auto-generated.")
-        
-        self.code = uuid4().hex[:6].upper()  # Generate a unique code
-        super().save(*args, **kwargs)
 
+        if self._state.adding:
+            # Throw error if code is provided
+            if self.code:
+                raise ValueError("Code must be unique and auto-generated.")
+            
+            self.code = uuid4().hex[:6].upper()  # Generate a unique code
+            self.is_active = True # Automatically active when created
+
+        super().save(*args, **kwargs)
 
     def __str__(self):
         return self.name
