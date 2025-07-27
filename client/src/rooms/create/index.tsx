@@ -1,5 +1,6 @@
 import Card from "../../component/card";
 import CenterAlign from "../../component/containers/center-align";
+import Select from "../../component/select";
 import TextInput from "../../component/text-input";
 
 
@@ -8,8 +9,14 @@ const CreateRoom = () => {
         <CenterAlign>
             <Card>
                 <TextInput label="Room Name" />
-                {/* Room creation form goes here */}
-
+                <Select
+                    label="Select Room Type"
+                    options={[
+                        { value: "public", label: "Public" },
+                        { value: "private", label: "Private" },
+                    ]}
+                    onChange={(event) => console.log(event.target.value)}
+                />
             </Card>
         </CenterAlign>
     );

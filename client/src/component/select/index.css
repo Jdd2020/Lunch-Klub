@@ -1,0 +1,25 @@
+.select-label {
+    font-size: .75rem;
+    color: #ababab;
+    font-weight: 500;
+}
+
+.select-input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #595757;
+    border: 1.5px solid #615d5d;
+    line-height: 1.5rem;
+    color: #ababab;
+    font-size: 1rem;
+    min-width: 13rem;
+}
+
+.select-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
