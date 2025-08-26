@@ -8,6 +8,7 @@ import Landing from "./landing"
 import Profile from "./profile"
 import CreateRoom from "./rooms/create"
 import RoomCreateGuest from "./rooms/create/guest"
+import RoomLobby from "./rooms/lobby"
 
 
 function App() {
@@ -23,6 +24,9 @@ function App() {
           <Route path="/rooms">
             <Route path="create" element={<CreateRoom />} />
             <Route path="create/guest" element={<RoomCreateGuest />} />
+            <Route path=":roomId">
+              <Route path="lobby" element={<RoomLobby />} />
+            </Route>
             {/* Add more nested routes here, e.g.: */}
             {/* <Route path=":roomId" element={<RoomDetail />} /> */}
             {/* <Route path=":roomId/edit" element={<EditRoom />} /> */}
