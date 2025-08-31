@@ -14,10 +14,11 @@ button {
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-
 }
 
 button:hover {
+    transform: scale(1.05);
+    transition: ease-in-out transform 0.4s, background-color 0.4s, color 0.4s;
     background-color: #ababab;
     color: #615d5d;
 }

@@ -1,3 +1,4 @@
+import Button from "../../component/button";
 import Card from "../../component/card";
 import Checkbox from "../../component/checkbox";
 import CenterAlign from "../../component/containers/center-align";
@@ -30,6 +31,7 @@ const CreateRoom = () => {
                     label="Enable Voice Chat"
                     onChange={(event) => console.log(event.target.checked)}
                 />
+                <Button onClick={() => console.log("Create Room Clicked")}>Create Room</Button>
             </Card>
         </CenterAlign>
     );
