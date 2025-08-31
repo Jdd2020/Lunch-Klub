@@ -66,6 +66,23 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:5173",
 ]
 
+# Disable CSRF for API views since we're using CORS
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_CREDENTIALS = True
+
+# Additional CORS headers needed for CSRF
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
+
 ALLOWED_HOSTS = [
     "localhost",
     "127.0.0.1",
@@ -161,4 +178,10 @@ REST_FRAMEWORK = {
 }
 
 SESSION_COOKIE_DOMAIN = 'localhost'
+# SESSION_COOKIE_SAMESITE = 'Lax'
+# SESSION_COOKIE_SECURE = False  # Set to True in production with HTTPS
+# CSRF_COOKIE_SAMESITE = 'Lax'
+# CSRF_COOKIE_SECURE = False  # Set to True in production with HTTPS
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_COOKIE_HTTPONLY = False  # Allow JavaScript access to the cookie
 CORS_ALLOW_CREDENTIALS = True

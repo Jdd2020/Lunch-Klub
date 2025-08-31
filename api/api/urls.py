@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework import routers
 from users import views as auth_views
+from users import csrf_views
 from django.urls import include
 from rooms import views as room_views
 
@@ -30,5 +31,6 @@ urlpatterns = [
     path('api/', include(api_router.urls)),
     path('api/login/', auth_views.LoginView.as_view(), name='login'),
     path('api/logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('api/csrf-token/', csrf_views.get_csrf_token, name='csrf-token'),
 
 ]

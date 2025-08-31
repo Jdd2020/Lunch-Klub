@@ -26,7 +26,7 @@ class LoginView(APIView):
             print(f"User {user.email} logged in successfully.")
             return Response({"message": "Logged in successfully."}, status=status.HTTP_200_OK)
         return Response({"message": "Invalid email or password."}, status=status.HTTP_400_BAD_REQUEST)
-    
+
 class LogoutView(APIView):
     permission_classes = [permissions.IsAuthenticated]
 

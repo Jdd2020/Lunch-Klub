@@ -6,12 +6,37 @@ type loginAttempt = {
     password: string
 }
 
+// Function to get CSRF token from cookies
+const getCSRFToken = (): string | null => {
+    const name = 'csrftoken';
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+};
+
 export const authApi = createApi({
     reducerPath: 'authApi',
     // Use same-origin proxy via Vite so cookies are on the client origin
     baseQuery: fetchBaseQuery({
         baseUrl: '/api/',
         credentials: 'include',
+        prepareHeaders: (headers) => {
+            const csrfToken = getCSRFToken();
+            if (csrfToken) {
+                headers.set('X-CSRFToken', csrfToken);
+            }
+            headers.set('Content-Type', 'application/json');
+            return headers;
+        },
     }),
     endpoints: (builder) => ({
         login: builder.mutation({
