@@ -38,7 +38,7 @@ const Landing = () => {
                 </Button>
             </Card>
             <LinkText onClick={() => navigate("/login")} style={{
-                color: colorPallette.textLightGray,
+                color: colorPallette.primaryLightGray,
             }}>Want to create a room? Login</LinkText>
         </CenterAlign>
     );

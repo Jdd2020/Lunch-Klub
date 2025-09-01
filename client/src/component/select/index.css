@@ -1,6 +1,6 @@
 .select-label {
     font-size: .75rem;
-    color: #ababab;
+    color: var(--primary-light-gray);
     font-weight: 500;
 }
 
@@ -9,10 +9,10 @@
     border-radius: 5px;
     border: none;
     outline: none;
-    background-color: #595757;
-    border: 1.5px solid #615d5d;
+    background-color: var(--primary-gray);
+    border: 1.5px solid var(--secondary-gray);
     line-height: 1.5rem;
-    color: #ababab;
+    color: var(--primary-light-gray);
     font-size: 1rem;
     min-width: 13rem;
 }

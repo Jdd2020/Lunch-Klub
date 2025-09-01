@@ -1,10 +1,10 @@
 const colorPallette = {
-    backgroundGray: "#595757",
-    textLightGray: "#d3d3d3",
-    textGray: "#ababab",
-    borderGray: "#615d5d",
-    borderHoverGray: "#8b8383",
-    white: "#ffffff",
+    primaryGray: "var(--primary-gray)",
+    secondaryGray: "var(--secondary-gray)",
+    errorRed: "var(--error-red)",
+    backgroundGradient: "var(--background-gradient)",
+    primaryLightGray: "var(--primary-light-gray)",
+    secondaryLightGray: "var(--secondary-light-gray)",
 };
 
 export default colorPallette;

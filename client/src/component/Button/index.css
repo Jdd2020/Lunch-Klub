@@ -2,10 +2,9 @@ button {
     width: 100%;
     padding: .625rem;
     border-radius: 5px;
-    border: none;
     outline: none;
-    background-color: var(--light-background);
-    color: var(--primary-text);
+    background-color: var(--secondary-gray);
+    color: var(--primary-light-gray);
     font-size: 1rem;
     cursor: pointer;
     width: 75%;
@@ -19,8 +18,8 @@ button {
 button:hover {
     transform: scale(1.03);
     transition: ease-in-out transform 0.4s, background-color 0.4s, color 0.4s;
-    background-color: var(--primary-text);
-    color: var(--light-background);
+    background-color: var(--primary-light-gray);
+    color: var(--primary-gray);
 }
 
 button:active {
