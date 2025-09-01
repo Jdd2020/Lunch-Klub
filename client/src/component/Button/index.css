@@ -4,8 +4,8 @@ button {
     border-radius: 5px;
     border: none;
     outline: none;
-    background-color: #615d5d;
-    color: #ababab;
+    background-color: var(--light-background);
+    color: var(--primary-text);
     font-size: 1rem;
     cursor: pointer;
     width: 75%;
@@ -17,10 +17,10 @@ button {
 }
 
 button:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     transition: ease-in-out transform 0.4s, background-color 0.4s, color 0.4s;
-    background-color: #ababab;
-    color: #615d5d;
+    background-color: var(--primary-text);
+    color: var(--light-background);
 }
 
 button:active {

@@ -1,3 +1,10 @@
+:root {
+  --background-gradient: linear-gradient(270deg, #d72c2c, #e2832b, #d72c2c);
+  --primary-text: #ababab;
+  --light-background: #615d5d;
+}
+
+
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
@@ -12,7 +19,7 @@
 
 body {
 
-  background: linear-gradient(270deg, #d72c2c, #e2832b, #d72c2c);
+  background: var(--background-gradient);
 
   background-size: 400% 400%;
 
@@ -32,7 +39,7 @@ body {
 
   min-height: 100vh;
 
-  color: #ababab;
+  color: var(--primary-text);
 
 
 }
