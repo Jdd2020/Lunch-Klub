@@ -1,7 +1,9 @@
 :root {
   --background-gradient: linear-gradient(270deg, #d72c2c, #e2832b, #d72c2c);
-  --primary-text: #ababab;
-  --light-background: #615d5d;
+  --primary-light-gray: #ababab;
+  --secondary-light-gray: #8b8383;
+  --primary-gray: #595757;
+  --secondary-gray: #615d5d;
 }
 
 
@@ -39,7 +41,7 @@ body {
 
   min-height: 100vh;
 
-  color: var(--primary-text);
+  color: var(--primary-light-gray);
 
 
 }

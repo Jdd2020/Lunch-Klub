@@ -1,11 +1,11 @@
 .text-input:focus {
-    border: 1.5px solid #8b8383;
-    background-color: #595757;
+    border: 1.5px solid var(--secondary-light-gray);
+    background-color: var(--primary-gray);
 }
 
 .text-input:hover {
-    border: 1.5px solid #8b8383;
-    background-color: #595757;
+    border: 1.5px solid var(--secondary-light-gray);
+    background-color: var(--primary-gray);
 }
 
 
@@ -18,7 +18,7 @@
 
 .text-input-label {
     font-size: .75rem;
-    color: #ababab;
+    color: var(--primary-light-gray);
     font-weight: 500;
 }
 
