@@ -38,6 +38,7 @@ const Profile = () => {
                 <p>Name: {user.first_name} {user.last_name}</p>
                 <p>Status: {user.is_active ? 'Active' : 'Inactive'}</p>
                 <Button onClick={handleLogout}>Logout</Button>
+                <Button onClick={() => navigate("/rooms/create")}>Create Room</Button>
                 {logoutError && <p>{`Error: ${logoutError}`}</p>}
             </Card>
         </CenterAlign>
