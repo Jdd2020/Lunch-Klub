@@ -1,11 +1,5 @@
-import { Room, RoomClass } from '../classes/Room';
+import { CreateRoomRequest, Room, RoomClass } from '../classes/Room';
 import { baseApi } from './baseApi';
-
-type CreateRoomRequest = {
-    name: string;
-    description?: string;
-    max_players: number;
-};
 
 export const roomsApi = baseApi.injectEndpoints({
     endpoints: (builder) => ({

@@ -33,3 +33,9 @@ export class RoomClass implements Room {
         this.updated_at = roomData.updated_at;
     }
 }
+
+export type CreateRoomRequest = {
+    name: string;
+    description?: string;
+    max_players: number;
+};
