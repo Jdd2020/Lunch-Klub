@@ -1,7 +1,7 @@
-from django.shortcuts import render
 from rest_framework import viewsets, permissions
 from rooms.models import Room
 from rooms.serializers import RoomSerializer
+from rest_framework.response import Response
 
 # Create your views here.
 
@@ -25,9 +25,13 @@ class RoomViewSet(viewsets.ModelViewSet):
         
         return [permission() for permission in permission_classes]
     
-    def perform_create(self, serializer):
+    def create(self, request, *args, **kwargs):
         """
-        Automatically set the user when creating a room
+        Override create to associate the room with the authenticated user.
         """
-        serializer.save(user=self.request.user)
-
+        if not request.user.is_authenticated:
+            return Response({'detail': 'Authentication credentials were not provided.'}, status=401)
+        
+        # Add the user to the request data
+        request.data['user'] = request.user.id
+        return super().create(request, *args, **kwargs)

@@ -1,9 +1,13 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { CreateRoomRequest } from "../../classes/Room";
 import Button from "../../component/button";
 import Card from "../../component/card";
 import CenterAlign from "../../component/containers/center-align";
 import Select from "../../component/select";
 import TextBox from "../../component/text-box";
 import TextInput from "../../component/text-input";
+import { useCreateRoomMutation } from "../../services/rooms";
 
 const playerOption = [
     { value: "1", label: "1 Player" },
@@ -18,6 +22,40 @@ const playerOption = [
 
 
 const CreateRoom = () => {
+    const [roomName, setRoomName] = useState("");
+    const [playerCount, setPlayerCount] = useState("1");
+    const [roomDescription, setRoomDescription] = useState("");
+
+    const navigate = useNavigate();
+
+    const [createRoom] = useCreateRoomMutation();
+
+    const handleCreateRoom = async () => {
+        if (!roomName) {
+            alert("Room name is required");
+            return;
+        }
+
+        if (!playerCount || isNaN(parseInt(playerCount)) || parseInt(playerCount) < 1) {
+            alert("Player count must be a valid number greater than 0");
+            return;
+        }
+
+        const roomData: CreateRoomRequest = {
+            name: roomName,
+            max_players: parseInt(playerCount),
+            description: roomDescription || undefined,
+        };
+
+        const result = await createRoom(roomData);
+        if (result.error) {
+            alert("Failed to create room");
+        } else {
+            const createdRoom = result.data;
+            navigate(`/rooms/${createdRoom.id}/lobby`);
+        }
+    };
+
     return (
         <CenterAlign>
             <Card style={{ minWidth: "350px" }}>
@@ -30,14 +68,14 @@ const CreateRoom = () => {
                     alignItems: "center",
                     gap: "1rem",
                 }}>
-                    <TextInput label="Room Name" style={{ width: "100%" }} />
+                    <TextInput label="Room Name" style={{ width: "100%" }} value={roomName} onChange={(event) => setRoomName(event.target.value)} />
                     <Select
                         label="Number of Players"
                         options={playerOption}
-                        onChange={(event) => console.log(event.target.value)}
+                        onChange={(event) => setPlayerCount(event.target.value)}
                     />
-                    <TextBox label="Room Description" style={{ width: "100%" }} />
-                    <Button onClick={() => console.log("Create Room Clicked")}>Create Room</Button>
+                    <TextBox label="Room Description" style={{ width: "100%" }} value={roomDescription} onChange={(event) => setRoomDescription(event.target.value)} />
+                    <Button onClick={handleCreateRoom}>Create Room</Button>
                 </div>
             </Card>
         </CenterAlign>
