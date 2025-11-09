@@ -18,7 +18,13 @@ const useNotify = () => {
   };
 
   const ToastRenderer = () =>
-    toast ? <Toast message={toast.message} type={toast.type} /> : null;
+    toast ? (
+      <Toast
+        message={toast.message}
+        type={toast.type}
+        onToastDismiss={() => setToast(null)}
+      />
+    ) : null;
 
   return { notifySuccess, notifyError, ToastRenderer };
 };

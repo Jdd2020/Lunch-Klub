@@ -1,3 +1,22 @@
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  10% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
 .toast-container {
   position: fixed;
   top: 1rem;
@@ -6,13 +25,23 @@
   flex-direction: column;
   gap: 0.5rem;
   z-index: 1000;
+  animation: fadeInOut 3s forwards;
 }
 
 .toast {
-  padding: 1rem 1.5rem;
-  border-radius: 5px;
-  color: var(--primary-light-gray);
+  position: relative;
+  padding: 1rem;
+}
+
+.toast-dismiss-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
   font-size: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  animation: slideIn 0.3s ease-out;
+  padding: 0 0.25rem;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
 }
