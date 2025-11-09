@@ -4,7 +4,7 @@ import Toast from "../component/toast";
 const useNotify = () => {
   const [toast, setToast] = useState<null | {
     message: string;
-    type: "success" | "error";
+    type: "success" | "error" | "info";
   }>(null);
 
   const notifySuccess = (message: string) => {

@@ -19,8 +19,8 @@
 
 .toast-container {
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0.25rem;
+  right: 0.25rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -30,7 +30,8 @@
 
 .toast {
   position: relative;
-  padding: 1rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.875rem;
 }
 
 .toast-dismiss-button {
@@ -44,4 +45,11 @@
   cursor: pointer;
   width: fit-content;
   height: fit-content;
+}
+
+.toast-icon-container {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.25rem;
 }
