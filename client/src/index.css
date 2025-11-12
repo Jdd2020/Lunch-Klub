@@ -1,27 +1,35 @@
 :root {
-  --background-gradient: linear-gradient(270deg, #d72c2c, #e2832b, #d72c2c);
-  --primary-light-gray: #ababab;
+  --background-gradient: linear-gradient(270deg, #353535, #222222);
+  --primary-light-gray: #c0c0c0;
   --secondary-light-gray: #8b8383;
-  --primary-gray: #595757;
+  --primary-gray: #4a4949;
   --secondary-gray: #615d5d;
   --error-red: #cf4747;
 }
-
 
 @keyframes gradientShift {
   0% {
     background-position: 0% 50%;
   }
 
+  25% {
+    background-position: 50% 50%;
+  }
+
+  50% {
+    background-position: 100% 0%;
+  }
+
+  75% {
+    background-position: 50% 50%;
+  }
+
   100% {
-    background-position: 100% 50%;
+    background-position: 0% 50%;
   }
 }
 
-
-
 body {
-
   background: var(--background-gradient);
 
   background-size: 400% 400%;
@@ -30,21 +38,15 @@ body {
 
   margin: 0;
 
-
   display: flex;
-
 
   place-items: center;
 
-
   min-width: 320px;
-
 
   min-height: 100vh;
 
   color: var(--primary-light-gray);
-
-
 }
 
 html,
@@ -54,5 +56,5 @@ body,
   padding: 0;
   width: 100%;
   height: 100%;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
